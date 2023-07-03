@@ -20,55 +20,41 @@ function App() {
         setToDoId(_id)
     }
 
-    return ( <
-            div className = "App" >
-            <
-            div className = "container" >
-            <
-            h1 > Todo List < /h1>
+    return ( 
+        <div className = "App" >
+            <div className = "container" >
+                <h1 > Todo List </h1>
 
-            <
-            div className = "top" >
-            <
-            input type = "text"
-            placeholder = "Add Todo..."
-            value = { text }
-            onChange = {
-                (e) => setText(e.target.value) }
-            />
+                <div className = "top" >
+                    <input type = "text"
+                    placeholder = "Add Todo..."
+                    value = { text }
+                    onChange = {
+                        (e) => setText(e.target.value) }
+                    />
 
-            <
-            div className = "add"
-            onClick = {
-                isUpdating ?
-                () => updateToDo(toDoId, text, setToDo, setText, setIsUpdating) :
-                    () => addToDo(text, setText, setToDo)
-            } > { isUpdating ? "Update" : "Add" }
+                    <div className = "add"
+                        onClick = {
+                            isUpdating ?
+                            () => updateToDo(toDoId, text, setToDo, setText, setIsUpdating) :
+                                () => addToDo(text, setText, setToDo)
+                        } > { isUpdating ? "Update" : "Add" }
 
-            <
-            /div> <
-            /div>
+                    </div> 
+                </div>
 
-            <
-            div className = "list" > {
-                toDo.map((item) => < ToDo key = { item._id }
-                    text = { item.text }
-                    updateMode = {
-                        () => updateMode(item._id, item.text) }
-                    deleteToDo = {
-                        () => deleteToDo(item._id, setToDo) }
+                <div className = "list" > {
+                    toDo.map((item) => < ToDo key = { item._id }
+                        text = { item.text }
+                        updateMode = {
+                            () => updateMode(item._id, item.text) }
+                        deleteToDo = {
+                            () => deleteToDo(item._id, setToDo) }
                     />)}
+                </div>
+            </div>
+        </div>
+    );
+}
 
-                    <
-                    /div>
-
-
-                    <
-                    /div>
-
-                    <
-                    /div>
-                );
-            }
-
-            export default App;
+export default App;
